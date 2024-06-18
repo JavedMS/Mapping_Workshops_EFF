@@ -1,0 +1,114 @@
+$submission_id,$created,Hvilken kode ble du gitt når vi startet?,Hva synes du er de tre viktigste tingene å tenke på ved utbygging av fornybar energi?,Hvilken fornybar energikilde ville du valgt?,Hvilken fornybar energikilde ville du valgt?.1,Hvilken fornybar energikilde ville du valgt?.2,Hvilken fornybar energikilde ville du valgt?.3,Hvilken fornybar energikilde ville du valgt?.4,Hvilke fylker i Norge mener du er best egnet til vindkraft?.Agder,Hvilke fylker i Norge mener du er best egnet til vindkraft?.Innlandet,Hvilke fylker i Norge mener du er best egnet til vindkraft?.Møre og Romsdal,Hvilke fylker i Norge mener du er best egnet til vindkraft?.Nordland,Hvilke fylker i Norge mener du er best egnet til vindkraft?.Oslo,Hvilke fylker i Norge mener du er best egnet til vindkraft?.Rogaland,Hvilke fylker i Norge mener du er best egnet til vindkraft?.Vestfold og Telemark,Hvilke fylker i Norge mener du er best egnet til vindkraft?.Troms og Finmark,Hvilke fylker i Norge mener du er best egnet til vindkraft?.Trøndelag,Hvilke fylker i Norge mener du er best egnet til vindkraft?.Vestland,Hvilke fylker i Norge mener du er best egnet til vindkraft?.Viken,I hvilken grad er du enig eller uenig at vindmøller plasseres her?,I hvilken grad er du enig eller uenig at vindmøller plasseres her?.1,I hvilken grad er du enig eller uenig at vindmøller plasseres her?.2,I hvilken grad er du enig eller uenig at vindmøller plasseres her?.3,I hvilken grad er du enig eller uenig at vindmøller plasseres her?.4,I hvilken grad er du enig eller uenig at vindmøller plasseres her?.5,I hvilken grad er du enig eller uenig at vindmøller plasseres her?.6,I hvilken grad er du enig eller uenig at vindmøller plasseres her?.7,I hvilken grad er du enig eller uenig at vindmøller plasseres her?.8,I områder der det er lite økonomisk aktivitet for å etablere ny industri,Nærme der elektrisiteten brukes og flest mennesker bor,I øde områder der lite elektrisitet brukes (høye transportkostnader),I områder der naturen er påvirket av menneskelig aktivitet (byer eller tettsteder),I områder det naturen ikke er påvirket av menneskelig aktivitet (skog eller øde områder),Nærme eksisterende veier og strømledninger for å redusere behovet for nye,Ikke i naturreservater for å beskytte dyre- og fugleliv,Hvilke fylker i Norge tror du er best egnet til solkraft?.Agder,Hvilke fylker i Norge tror du er best egnet til solkraft?.Innlandet,Hvilke fylker i Norge tror du er best egnet til solkraft?.Møre og Romsdal,Hvilke fylker i Norge tror du er best egnet til solkraft?.Nordland,Hvilke fylker i Norge tror du er best egnet til solkraft?.Oslo,Hvilke fylker i Norge tror du er best egnet til solkraft?.Rogaland,Hvilke fylker i Norge tror du er best egnet til solkraft?.Vestfold og Telemark,Hvilke fylker i Norge tror du er best egnet til solkraft?.Troms og Finmark,Hvilke fylker i Norge tror du er best egnet til solkraft?.Trøndelag,Hvilke fylker i Norge tror du er best egnet til solkraft?.Vestland,Hvilke fylker i Norge tror du er best egnet til solkraft?.Viken,wind_exper.1,wind_exper.2,wind_exper.3,wind_exper.4,Hvordan synes du er best å ta hensyn til denne usikkerheten?,renew_int,Hvilket alternativ foretrekker du?,$answer_time_ms
+31916418,2024-05-24 09:08:17,Mari,,2,,2.0,,2.0,0,0,0,0,0,1,0,0,1,0,0,4,7,7,1,3,7,8,4,8,4,3,3,3,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,1,1,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,1,Kabler over bakken,154054
+31924795,2024-05-24 15:10:24,9a,,2,,2.0,,1.0,0,0,0,0,0,0,0,1,0,0,0,9,6,1,7,9,9,9,9,3,3,4,5,4,4,5,2,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,Lagre (eks. batterier) alt vi produserer for mye,2,Kabler under bakken,598071
+31924796,2024-05-24 15:10:27,21A,,1,1.0,,,,0,0,0,0,0,0,0,1,0,0,0,2,1,1,7,9,7,9,6,1,2,2,3,3,2,3,3,1,0,0,0,0,1,1,0,0,0,0,1,1,1,1,Lagre det vi produserer for mye og dele med andre,1,Kabler under bakken,516948
+31924823,2024-05-24 15:11:57,13A,"1) Cost 
+2) Efficiency 
+3) Visual impact",1,1.0,,,,0,0,0,0,0,0,0,0,0,1,0,1,2,3,1,3,1,2,1,1,2,3,1,1,1,3,5,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,Lagre (eks. batterier) alt vi produserer for mye,1,Kabler under bakken,647181
+31924829,2024-05-24 15:12:05,4A,Natur og ekonomi,2,,2.0,,1.0,0,0,0,1,0,0,0,1,0,0,0,7,3,6,6,7,4,7,4,6,4,3,4,4,2,2,4,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,3,Kabler over bakken,490626
+31924833,2024-05-24 15:12:13,15A,"1) Vernet natur
+2) Energy efficiency
+3) Cost",1,1.0,,,,0,0,1,0,0,0,0,0,1,1,0,8,9,9,9,9,8,9,9,7,5,4,3,5,2,4,5,1,1,0,0,1,0,1,0,0,0,1,1,1,0,0,Lagre det vi produserer for mye og dele med andre,1,Kabler over bakken,708562
+31924847,2024-05-24 15:13:25,14b,"1. Vernet natur
+2. Kostnader 
+3. Utløp av drivhusgasser under bygning",1,2.0,,,,0,0,0,0,0,0,0,0,0,1,0,5,4,8,5,2,5,8,5,1,4,3,2,2,2,5,5,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,Lagre (eks. batterier) alt vi produserer for mye,2,Kabler over bakken,541546
+31924850,2024-05-24 15:13:44,17A,"1. fordelene med den nye energikilde (altså hvorfor dette r bra for miljøet)
+2. Effekten på nærmiljøet og naturen rundt 
+3. Effekten på den potensielle befolkningen rundt energikilden",2,,1.0,1.0,,0,0,1,1,0,0,0,0,0,1,0,6,7,8,7,4,4,7,8,6,4,2,4,2,4,4,3,1,0,1,0,0,1,0,0,0,1,0,1,1,0,0,Lagre det vi produserer for mye og dele med andre,3,Kabler under bakken,674001
+31924861,2024-05-24 15:14:11,B23,"kostnader
+arbeidsmuligheter
+vernet natur",1,1.0,,,,0,0,0,1,0,0,0,1,0,0,0,3,4,8,6,3,1,9,7,1,4,2,2,2,3,4,5,0,0,0,0,1,0,0,0,0,0,0,1,1,1,1,Lagre det vi produserer for mye og dele med andre,1,Kabler over bakken,685719
+31924882,2024-05-24 15:15:04,A22,"man må gjøre en grundig environmental impact assessment, passe på økonomien og passe på at det faktisk er smart å bygge mer med tanke på mengden CO2 det tar å bygge mer fornybar energi.",2,,2.0,,2.0,0,0,0,1,0,1,0,1,1,0,0,7,8,4,8,9,8,9,6,5,5,4,4,3,5,5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,1,Kabler over bakken,873168
+31924915,2024-05-24 15:16:32,ft5,"1. Consideration for local indigenous groups 
+2. Conservation of nature 
+3. Suitability for norways natural climate (e.g. hydropower is more suitable for norway than solar power)",2,,1.0,1.0,,0,0,0,0,0,1,0,0,1,0,0,4,2,7,3,8,9,7,6,3,2,4,2,3,4,5,5,0,0,0,0,0,1,0,0,1,0,1,1,1,0,0,Bruke mye elektrisitet når vi produserer mye og motsatt,1,Ikke bygge ut kabler,689692
+32022285,2024-05-31 11:12:34,11E,,1,1.0,,,,1,1,1,1,1,1,1,1,1,1,1,9,9,8,3,9,1,9,5,5,1,5,5,5,5,5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,Lagre (eks. batterier) alt vi produserer for mye,1,Kabler over bakken,125960
+32022310,2024-05-31 11:13:45,ISE,,1,2.0,,,,0,0,0,1,0,0,0,0,0,0,0,5,5,5,4,3,6,6,3,3,3,3,3,3,3,3,3,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,1,Kabler under bakken,250753
+32022315,2024-05-31 11:14:00,2 E,"Natur
+Penger
+Folket",1,1.0,,,,0,0,0,0,0,0,0,0,0,1,0,1,4,3,1,4,1,9,2,1,3,3,3,3,3,3,3,0,0,0,0,1,0,0,0,0,0,1,1,1,1,1,Lagre (eks. batterier) alt vi produserer for mye,3,Kabler under bakken,254919
+32022330,2024-05-31 11:14:54,13E,"1. Natur
+2. Penger
+3. Kommunen",2,,1.0,1.0,,0,0,0,0,0,0,0,0,1,0,0,4,5,6,2,3,3,5,2,2,2,3,1,3,1,4,5,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,Lagre det vi produserer for mye og dele med andre,2,Kabler under bakken,326749
+32022356,2024-05-31 11:16:05,8E,naturen-dyre livet- strømmen,1,2.0,,,,0,0,0,1,0,0,0,0,1,1,0,2,1,1,1,1,1,2,1,1,1,1,3,1,1,1,5,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,3,Kabler under bakken,383635
+32022362,2024-05-31 11:16:25,4E,"1. Natur 
+2. Penger 
+3. Komunnen",1,2.0,,,,0,0,0,1,0,0,0,0,1,1,0,6,1,1,1,7,9,9,1,2,3,3,3,3,3,3,3,0,0,0,0,1,0,1,0,0,0,1,0,0,0,1,Lagre det vi produserer for mye og dele med andre,3,Kabler over bakken,437280
+32022365,2024-05-31 11:16:41,16e,"Dyreliv, kostnad, er det verdt det",2,,1.0,1.0,,0,0,0,0,0,0,0,1,0,0,0,8,1,5,2,1,8,6,2,1,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,Lagre (eks. batterier) alt vi produserer for mye,2,Kabler over bakken,320673
+32022370,2024-05-31 11:17:07,5E,vernet natur-kostnader-utbygging,2,,1.0,1.0,,0,0,0,1,0,0,0,0,0,0,0,8,4,9,8,9,1,8,5,2,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,Lagre (eks. batterier) alt vi produserer for mye,1,Kabler over bakken,458235
+32022377,2024-05-31 11:17:28,C1,"1. Befolkning (jobber)
+2. Kostnader
+3. Miljø",2,,1.0,2.0,,1,0,0,1,0,0,1,0,0,0,0,5,6,2,9,8,4,7,9,6,5,3,3,2,3,1,5,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,Bruke mye elektrisitet når vi produserer mye og motsatt,3,Kabler under bakken,189815
+32022384,2024-05-31 11:17:58,C9,"1. fordi vi må redde klimaet før det er for sent.
+2. naturen
+3. de som bor der",1,2.0,,,,0,0,0,1,0,0,0,0,0,1,0,7,2,6,8,6,7,8,2,5,3,3,3,2,4,4,3,0,0,0,0,0,0,1,0,0,0,1,1,1,0,0,Lagre det vi produserer for mye og dele med andre,3,Kabler over bakken,299690
+32022390,2024-05-31 11:18:14,17E,Tenke på dyrelivet og eiendommer til folket.,1,2.0,,,,0,0,0,0,0,0,0,0,0,0,1,3,4,3,5,4,3,6,2,3,3,2,3,3,1,2,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,Lagre (eks. batterier) alt vi produserer for mye,3,Kabler under bakken,460690
+32022395,2024-05-31 11:18:18,14E,"Tiden det tar å bygge ut, store områder ødelagte, påvirker dyr og økosystemer",2,,1.0,2.0,,0,0,1,0,0,1,0,0,1,1,0,2,6,8,7,4,6,1,7,2,2,4,1,4,1,4,5,0,0,0,0,0,0,0,1,0,0,0,1,1,0,1,Lagre det vi produserer for mye og dele med andre,3,Kabler under bakken,492609
+32022399,2024-05-31 11:18:35,C21,"innbyggerne rundt der anlegget blir plassert
+
+beiteområder og naturen
+
+plassering",1,1.0,,,,0,0,0,1,0,0,0,0,1,0,0,9,1,9,5,9,9,9,9,9,5,3,5,3,5,5,5,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,2,Kabler over bakken,273765
+32022401,2024-05-31 11:18:37,C2,Bra for naturen,2,,2.0,,2.0,0,0,0,0,0,0,0,0,0,1,0,7,1,6,8,1,4,1,1,1,4,2,5,1,1,1,5,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,Lagre det vi produserer for mye og dele med andre,1,Kabler over bakken,291480
+32022410,2024-05-31 11:19:00,C17,"Kostnadene for utbygging
+Dyr
+Ødeleggelser av Naturen",2,,1.0,2.0,,0,0,0,0,0,0,0,0,1,1,0,8,1,5,7,9,7,9,4,5,3,2,4,3,4,3,3,1,1,0,0,0,0,0,0,0,0,0,0,1,0,1,Lagre det vi produserer for mye og dele med andre,3,Kabler over bakken,387624
+32022414,2024-05-31 11:19:08,c12,,1,2.0,,,,0,0,0,0,0,0,1,0,0,0,0,5,5,5,4,4,5,4,4,4,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,Lagre det vi produserer for mye og dele med andre,1,Ikke bygge ut kabler,244379
+32022415,2024-05-31 11:19:09,C16,"bærekraftig utvikling, økonomi og natur",1,1.0,,,,0,0,0,1,0,0,0,0,0,1,0,9,5,5,9,9,9,9,5,6,4,3,4,3,5,5,5,1,0,0,0,1,1,0,0,0,0,1,0,1,0,0,Lagre det vi produserer for mye og dele med andre,3,Kabler over bakken,323058
+32022422,2024-05-31 11:19:17,7E,"Lokasjon
+Konsekvenser
+Formål",2,,1.0,1.0,,0,0,0,0,0,0,0,0,0,1,0,7,3,1,4,6,7,9,9,3,4,2,5,2,2,5,5,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,Lagre (eks. batterier) alt vi produserer for mye,3,Kabler over bakken,553509
+32022423,2024-05-31 11:19:18,C15,,2,,2.0,,2.0,0,0,0,0,0,0,0,0,1,0,0,7,3,2,7,7,5,7,7,4,4,3,2,1,4,2,4,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,3,Kabler over bakken,324317
+32022436,2024-05-31 11:20:16,C18,"Innbyggerens meninger, kostnader og natur",1,2.0,,,,0,0,1,0,0,1,0,1,1,1,0,7,3,4,3,3,4,4,3,2,3,3,3,3,3,3,3,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,3,Ikke bygge ut kabler,367634
+32022452,2024-05-31 11:21:00,C8,"1. Klima
+2. Naturen",1,1.0,,,,0,0,0,0,0,1,0,0,1,0,0,7,1,6,3,4,9,9,1,3,4,1,4,1,4,3,3,0,1,0,0,1,0,0,0,0,0,1,0,1,0,0,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,2,Kabler under bakken,371167
+32022466,2024-05-31 11:21:32,C11,,1,1.0,,,,0,0,1,0,0,1,1,1,0,0,0,4,1,3,3,6,7,5,6,4,3,1,3,2,3,2,2,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,Bruke mye elektrisitet når vi produserer mye og motsatt,1,Kabler under bakken,428936
+32022479,2024-05-31 11:22:03,C19,"Natur, Hva man får ut av det, Hvor mye det koster",1,1.0,,,,0,0,1,1,0,1,0,1,1,1,0,8,5,6,1,2,7,9,1,1,3,3,4,3,1,5,5,1,0,0,0,1,1,0,0,0,0,1,1,1,1,1,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,3,Kabler over bakken,544498
+32022484,2024-05-31 11:22:16,C5,"1.Hvor mye energi som blir produsert
+2. Vernet natur
+3. Kostnader",2,,1.0,1.0,,0,0,0,1,0,1,0,0,1,1,0,6,3,7,4,6,7,4,2,3,4,4,2,2,4,4,4,1,0,0,0,0,0,1,0,0,0,1,1,1,1,1,Lagre (eks. batterier) alt vi produserer for mye,3,Kabler over bakken,471533
+32022489,2024-05-31 11:22:31,c4,"1. om det skader for noen eller noe
+2. kostnader
+3. hvem som er ansvarlig",2,,1.0,2.0,,0,0,1,1,0,1,0,0,0,1,0,9,9,9,3,1,4,8,4,3,4,2,4,4,2,4,5,1,1,0,0,1,0,1,0,1,0,1,1,1,1,1,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,3,Kabler under bakken,479967
+32022517,2024-05-31 11:23:39,C10,"Vedlikehold av natur 
+Økonomi og arbeidsplasser",1,2.0,,,,0,0,0,1,0,1,0,0,0,0,0,7,5,7,5,7,4,5,6,5,4,3,3,3,3,4,5,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,Lagre (eks. batterier) alt vi produserer for mye,3,Kabler over bakken,544666
+32022524,2024-05-31 11:23:48,C6,"1. dyreliv og hvordan det blir påvirket.
+2. hvem skal ta kostnadene.
+3. Hvordan vil det påvirke lokalbefolkningen og hva synes de om utbyggingen.",1,2.0,,,,1,0,1,1,0,1,0,1,1,1,0,9,2,9,5,9,9,9,1,1,5,2,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,Lagre (eks. batterier) alt vi produserer for mye,1,Kabler under bakken,563944
+32022559,2024-05-31 11:26:06,D7,"Natur, boligfelt, økonomi",1,2.0,,,,1,0,0,0,0,0,0,0,0,0,0,9,5,9,9,9,9,9,9,9,2,4,4,3,4,4,4,1,0,0,0,0,1,1,0,0,0,0,0,1,0,0,Lagre (eks. batterier) alt vi produserer for mye,3,Kabler under bakken,203256
+32022561,2024-05-31 11:26:12,D6,Ikke ødlegge for mye natur,1,1.0,,,,0,1,0,1,0,0,0,0,0,0,0,7,1,2,2,5,5,9,2,1,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,Lagre (eks. batterier) alt vi produserer for mye,2,Kabler over bakken,203658
+32022565,2024-05-31 11:26:31,D13,"vernet natur 
+innbyggere
+økonomi",2,,1.0,2.0,,0,0,0,0,0,1,0,0,1,0,0,4,2,6,5,1,2,4,1,2,5,2,3,2,1,4,5,1,0,0,0,0,0,1,0,0,0,0,1,1,1,1,Lagre det vi produserer for mye og dele med andre,1,Kabler under bakken,248795
+32022585,2024-05-31 11:27:27,D8,"Billig strøm
+ikke ødelegge natur
+ikke væravhengig",1,1.0,,,,0,0,0,0,0,0,0,1,0,0,0,1,1,1,1,1,1,9,1,1,3,3,3,3,3,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,Lagre (eks. batterier) alt vi produserer for mye,1,Kabler under bakken,286402
+32022586,2024-05-31 11:27:35,D17,"1. urfolk skal tas hensyn til
+2. natur skal bevares
+3. klima",2,,1.0,1.0,,0,0,0,0,0,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,0,0,1,1,1,1,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,2,Kabler over bakken,296129
+32022593,2024-05-31 11:27:45,D1,"Økonomi, dyreliv, friluftsliv",2,,1.0,1.0,,0,1,0,0,0,0,0,0,0,0,0,9,3,1,9,8,9,9,3,1,4,2,3,3,3,3,3,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,Bruke mye elektrisitet når vi produserer mye og motsatt,3,Ikke bygge ut kabler,325710
+32022594,2024-05-31 11:27:53,020,"Naturen, dyrelivet og menneskene som bor der",1,2.0,,,,0,0,0,0,0,0,0,0,1,0,0,5,1,5,2,6,4,7,2,1,3,3,3,1,2,1,5,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,Lagre (eks. batterier) alt vi produserer for mye,1,Kabler under bakken,317698
+32022605,2024-05-31 11:28:16,D3,"Vernet natur, kostnader og utseende",1,2.0,,,,0,1,0,0,1,0,1,0,0,0,1,4,1,4,3,5,4,6,2,1,4,1,3,1,4,2,2,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,2,Kabler under bakken,355752
+32022609,2024-05-31 11:28:31,d21,"det koster flere miliarder å bygge fornybar enegeri og tar lang tid før vi får de penege tilbake. 
+det kan ødlegge naturomeråder 
+mye plass",1,2.0,,,,0,0,0,1,0,1,0,0,1,1,0,5,2,4,6,4,5,7,4,4,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,Lagre det vi produserer for mye og dele med andre,1,Kabler over bakken,342912
+32022611,2024-05-31 11:28:33,D15,"Vernet natur
+Ikke plager innbyggere
+produserer for Norge",1,1.0,,,,0,0,0,0,0,0,0,1,0,0,0,6,2,5,4,7,9,8,3,4,3,1,3,3,3,3,3,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,Lagre (eks. batterier) alt vi produserer for mye,2,Kabler under bakken,307364
+32022617,2024-05-31 11:28:38,D5,"Kostnader 
+Fornybart
+Verne naturen",2,,1.0,2.0,,0,0,0,0,0,1,0,0,1,0,0,6,2,7,8,2,9,4,3,4,4,4,3,4,3,3,4,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,3,Kabler under bakken,370628
+32022620,2024-05-31 11:28:46,D4,"arbeidsplasser, naturområdene og dyrelivet",1,1.0,,,,1,0,1,0,0,0,1,1,0,1,1,5,1,4,3,5,5,6,4,5,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,3,Kabler under bakken,383404
+32023525,2024-05-31 12:16:38,D16,"1.  Ved utbygging av fornybar energi tar vi vare på jorden og klimaet, ved å ikke slippe ut CO2 gasser.
+
+2. Fornybar energi er en bærekraftig måte å lage energi på.",1,2.0,,,,0,0,1,0,0,0,0,0,0,0,0,3,2,4,1,3,4,7,1,2,3,1,2,4,2,1,5,1,1,0,0,1,1,1,0,0,1,1,1,1,0,1,Lagre det vi produserer for mye og dele med andre,2,Kabler over bakken,3150465
+32040991,2024-06-03 09:20:45,3B,3,1,2.0,,,,0,0,0,0,0,0,0,0,1,0,0,8,1,1,9,1,6,9,1,1,5,1,2,1,2,1,2,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,Lagre det vi produserer for mye og dele med andre,3,Kabler under bakken,215214
+32040996,2024-06-03 09:21:10,10b,,1,1.0,,,,0,1,1,0,0,0,0,1,0,0,0,5,4,4,5,5,3,6,3,3,3,4,4,3,5,2,5,1,0,1,0,0,1,0,0,0,0,1,1,1,1,1,Lagre (eks. batterier) alt vi produserer for mye,2,Kabler under bakken,270813
+32041031,2024-06-03 09:23:00,7B,"Kostnader/utgifter 
+Miljø
+Tidsbruk av bygging",2,,1.0,1.0,,0,0,0,0,0,0,0,1,1,1,0,5,2,5,5,4,5,5,1,3,3,3,3,3,3,3,3,0,1,0,0,1,0,0,0,1,0,1,0,1,1,0,Bruke mye elektrisitet når vi produserer mye og motsatt,1,Kabler over bakken,420602
+32041032,2024-06-03 09:23:00,1B,,2,,1.0,1.0,,0,1,0,1,0,0,0,1,1,1,0,7,2,4,5,6,2,6,2,1,2,2,2,3,3,3,5,0,1,0,0,1,1,0,0,0,1,1,1,1,1,1,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,3,Kabler under bakken,335859
+32041116,2024-06-03 09:27:07,9B,"Utvikling av samfunnet, økonomisk vekst, miljøvennlig energikilde",2,,1.0,1.0,,0,0,0,0,0,0,1,1,1,0,0,8,6,5,9,7,8,3,2,2,3,4,2,4,4,5,4,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,Dele det vi produserer for mye med andre og få elektrisitet fra andre når vi produserer for lite,3,Kabler over bakken,520557
+32041118,2024-06-03 09:27:21,8B,"1. Om det skader miljøet rundt.
+2. Kostnader
+3. Plass",2,,2.0,,2.0,0,0,1,0,0,0,0,0,0,0,0,7,1,2,4,6,9,6,4,4,2,4,3,3,3,4,3,0,1,0,0,1,0,1,0,0,0,1,1,1,1,1,Lagre det vi produserer for mye og dele med andre,3,Kabler over bakken,551413
