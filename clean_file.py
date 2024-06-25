@@ -32,7 +32,6 @@ def map_name2prefix(df: pd.DataFrame, prefix: set[str], dict: dict[str:str]):
         return None
     return None
 
-
 # Set the na to a value
 def fill_na(df: pd.DataFrame, val: int):
     df.fillna(val) 
