@@ -41,8 +41,7 @@ def get_transmission():
         return "DefaultNO"
     return "DefaultYes"
 
-
-#print(get_transmission())
+trans = get_transmission()
 
 def get_import():
     counts = data["importOutlook"].value_counts()
@@ -57,7 +56,7 @@ def get_import():
     if obj == "balanced":
         return 3
 
-#print(get_import())
+import_xxx = get_import()
 
 def get_varnew():
     categories = data["energySource"]
@@ -89,7 +88,7 @@ def get_varnew():
 
     return percentage_list.tolist()
 
-print(get_varnew())  
+varnewpcapQ = get_varnew()
 
 def get_corine():
     min_accepted_val = 5
@@ -103,4 +102,4 @@ def get_corine():
 
     return arr
 
-print(get_corine())
+corine_onshore = get_corine()
