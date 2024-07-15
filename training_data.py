@@ -103,3 +103,10 @@ def get_corine():
     return arr
 
 corine_onshore = get_corine()
+
+# FIXEDOH 3 [0.24615384615384617, 0.34615384615384615, 0.3261538461538462, 0.08153846153846152] [1, 0, 1, 1, 1, 1, 1, 0, 0]
+
+print("trans", trans)
+print("import_xxx", import_xxx)
+print("varnewpcapQ", varnewpcapQ)
+print("corine_onshore", corine_onshore)
