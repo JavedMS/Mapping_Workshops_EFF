@@ -65,7 +65,7 @@ def get_varnew():
     counts = data["energySource"].aggregate(lambda x: x.value_counts())
 
     solar_bias = 0.5
-    offshore_bias = 0.8
+    offshore_bias = 1
 
     filtered_rows = counts.loc[2] # Get the row with value 2 (solar)
     

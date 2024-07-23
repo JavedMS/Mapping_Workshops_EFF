@@ -11,10 +11,27 @@ import re
 from cartopy import crs as ccrs
 from matplotlib.ticker import FuncFormatter
 import matplotlib.colors as mcolors
+import textwrap
 
 border_color = "light grey"
 colors = ['#ffa0a0', '#ffb0a0', '#ffc0a0', '#ffd0a0', '#ffe0a0', '#fff0a0']
 
+# Seaborn styling
+#sns.set_palette('muted')
+sns.set_palette('pastel')
+
+# Despine
+border_color = "lightgray"
+label_color = "gray"
+
+# Specifying custom matplotlib.RcParams
+rc_params = {"axes.spines.right": False, "axes.spines.top": False, "axes.spines.left" : False,
+                 "axes.edgecolor" : border_color, "axes.labelcolor" : border_color, 
+                 "xtick.color" : border_color, "ytick.color" : border_color, 
+                 "xtick.labelcolor" : label_color, "ytick.labelcolor" : label_color,
+                 #"axes.grid": True, "grid.color": border_color, "axes.grid.axis": "y"
+                 }
+sns.set_theme(style="ticks", rc=rc_params)
 
 def line_plot(df: pd.Series, cols: list[str]):
     # Assume that all the columns are in the datastructure 
@@ -25,13 +42,15 @@ def donut_plot(df: pd.Series, fig, ax):
     percent_distance = 1.3 # Just outside the plot
     explode = [0.01 for _ in range(len(df))] # TODO: Has to be the same size as x 
     angle = 90
+    color_i = ["tab:blue", "tab:green", "tab:orange", "tab:red"]
     patches, texts, autotexts = ax.pie(df,
             autopct='%1.0f%%', 
             pctdistance= percent_distance, 
             explode = explode, 
             labels = None, 
             startangle=angle,
-            colors = colors)
+            colors = color_i
+            )
 
     # Set labels
     #ax.set_ylabel("Y-axis", rotation = "horizontal")
@@ -40,7 +59,7 @@ def donut_plot(df: pd.Series, fig, ax):
 
     # Change text-color
     for i, prc_text in enumerate(autotexts):
-        prc_text.set_color(colors[i])
+        prc_text.set_color(color_i[i])
         prc_text.set_fontsize(13)
 
     # Add the ellipsis in the middle
@@ -56,7 +75,7 @@ def donut_plot(df: pd.Series, fig, ax):
               facecolor="white", 
               edgecolor="white", 
               frameon=False, 
-              bbox_to_anchor=(1.3, 1))
+              bbox_to_anchor=(1.5, 1))
 
     #plt.show()
 
@@ -65,14 +84,49 @@ def box_plot(df: pd.DataFrame):
     data = pd.melt(df[sorted_columns])
 
     # Create the box plot
-    sns.boxplot(x='Response', y='value', data=data, width = 0.5, color = "lightgray")
+    plt.figure(figsize=(15, 6))
+    ax = sns.boxplot(x='Response', y='value', data=data, width = 0.7)
+    
+    fig = ax.figure
 
-    # Enhance the plot
-    plt.xticks(rotation=45) # Rotate the x-axis labels for better readability
-    plt.show()
+    return ax
 
 def violin_chart(df: pd.DataFrame, cols: list[str]):
     return None
+
+def stacked_bar_chart(plot_data: pd.DataFrame, fig, ax):
+    # Remove all spines
+    for spine in ax.spines:
+        ax.spines[spine].set_visible(False)
+
+    ax.spines["bottom"].set_visible(True)
+
+    # Add the dataplot with zorder 2 (to be on top)
+    bar_width = 0.6
+    plot_data.plot(kind='bar', ax=ax, legend=False, zorder=2, width = bar_width, stacked=True)
+
+    # Change y-axis
+    ax.spines['left'].set_position(position=('outward', 30))
+    ax.tick_params(axis='y', colors= 'gray')
+
+    # Change bar-text
+    ax.tick_params(axis='x', length=0, labelrotation=0, labelcolor= "black", pad=15)
+
+    # Change legend
+    legend_values = plot_data.columns
+    ax.legend(legend_values, loc='upper right', labelcolor="gray", facecolor="white", edgecolor="white", frameon=False, bbox_to_anchor=(1, 1.2))
+
+    # Add vertical box-lines with zorder 1 (behind the bars)
+    ax.yaxis.grid(visible=True, linestyle="dotted", zorder=1)
+    ax.set_axisbelow(True)
+
+    # Remove x_label
+    ax.set_xlabel(None)
+
+    # Add title text
+    plt.tight_layout()
+    plt.show()
+
 
 def bar_chart(plot_data: pd.DataFrame, fig, ax):
     # Remove all spines
@@ -100,7 +154,7 @@ def bar_chart(plot_data: pd.DataFrame, fig, ax):
     for bar in ax.patches:
         # Adjust the padding calculation to account for the direction
         padding = -offset if i < groups else offset if i > groups else 0
-        bar.set(facecolor = colors[i], x = bar.get_x() + padding,  edgecolor = "black")
+        bar.set(facecolor = colors[i], x = bar.get_x() + padding)
         j += 1
         i = int(j / len(plot_data.index))
 
@@ -140,17 +194,27 @@ def barh_chart(plot_data: pd.DataFrame, fig, ax):
 
     # Add the dataplot with zorder 2 (to be on top)
     bar_width = 0.7
-    plot_data.plot(kind='barh', ax=ax, colormap='copper', legend=False, zorder=2, width = bar_width)
+    plot_data.plot(kind='barh', ax=ax, legend=False, zorder=2, width = bar_width)
+
+    # Limit the horizontal length of text
+    wrapped_labels = ['\n'.join(textwrap.wrap(label.get_text(), width=22)) for label in ax.get_yticklabels()]
+    ax.set_yticklabels(wrapped_labels)
 
     # Change y-axis
     ax.spines['left'].set_position(position=('outward', 10))
     ax.tick_params(axis='y', colors= 'gray')
+    
+    # Left align the labels
+    for label in ax.get_yticklabels():
+        label.set_horizontalalignment('left')
+
+    ax.spines['left'].set_position(position=('outward', 10))
 
     # Change bar-colors and the padding between the bars
     i = 0
     for bar in ax.patches:
         # Adjust the padding calculation to account for the direction
-        bar.set(facecolor = colors[i],  edgecolor = "black")
+        bar.set(facecolor = 'tab:blue', edgecolor = "black")
 
     # Change bar-text
     ax.tick_params(axis='x', labelrotation=0, labelcolor= "black", pad=15)
@@ -161,15 +225,12 @@ def barh_chart(plot_data: pd.DataFrame, fig, ax):
 
     # Remove x_label
     #ax.set_xlabel(xlabel = "Hello")
-    ax.set_xlabel(xlabel = "Respondents where asked to classify from 1 to 5", color = 'gray', loc = 'left', labelpad = 10, fontsize = 7, fontfamily = 'sans-serif')
+    #ax.set_xlabel(xlabel = "Respondents where asked to classify from 1 to 5", color = 'gray', loc = 'left', labelpad = 10, fontsize = 7, fontfamily = 'sans-serif')
     ax.xaxis.set_label_position(position='top')
     ax.set_ylabel(None)
 
     # Add title text
     #ax.set_title("Wind and Solar Production Over Years ", color = "black", pad = 25, loc = 'left')
-
-    plt.tight_layout()
-    plt.show()
 
 def text_pre(df: pd.DataFrame, col: str):
     # Creaete a pandas.Series object and split it into words
@@ -226,8 +287,9 @@ def geo_plot(df, fig, ax):
         return f'{x * 100:.0f}%'
 
     formatter = FuncFormatter(to_percent)
+    palette = 'coolwarm'
     df.plot(column = "pos", 
-              cmap = 'copper',
+              cmap = palette,
               edgecolor = "white", 
               legend = False, 
               legend_kwds=
@@ -255,10 +317,13 @@ def geo_plot(df, fig, ax):
     ax.set_xlabel("X-axis")
 
     # Create a colorbar
-    sm = plt.cm.ScalarMappable(cmap='copper', norm=plt.Normalize(vmin=df['pos'].min(), vmax=df['pos'].max()))
+    sm = plt.cm.ScalarMappable(cmap=palette, norm=plt.Normalize(vmin=df['pos'].min(), vmax=df['pos'].max()))
     sm.set_array([])
     cbar = fig.colorbar(sm, ax=ax)
     cbar.outline.set_visible(False)  # Remove the colorbar frame
+
+    # Apply the formatter to the colorbar
+    cbar.ax.yaxis.set_major_formatter(formatter)
 
     cmap = cbar.cmap # Get the colormap for the colorbar
 
@@ -266,22 +331,32 @@ def geo_plot(df, fig, ax):
     # Normalize object to map the value range to [0, 1]
     norm = mcolors.Normalize(vmin=vmin, vmax=vmax)
 
-    for label in cbar.ax.get_yticklabels():
-        val = float(label.get_text())
-        normalized_val = norm(val)
-        color = cmap(normalized_val)
-
-        # set function for mpl.Text
-        label.set(color = color, fontsize=10) 
-        label.set_text(to_percent(val,0)) # Why doesn't this work? 
-
-    # Remove the tick-length
     cbar.ax.tick_params(length=0)
 
     # Modify the legend
     legend = ax.get_legend()
 
-def survey(results, category_names):
+def get_survey_data(data):
+    category_names = ['Strongly disagree', 'Disagree',
+                  'Neither agree nor disagree', 'Agree', 'Strongly agree']
+
+    df = data.melt().value_counts().to_frame().groupby(["Response","value"]).sum()["count"].reset_index()
+    pivot_df = df.pivot(index='value', columns='Response', values='count')
+
+    # Sort the values
+    sort_values = pivot_df.iloc[0].values
+
+    # Step 2: Sort the columns of pivot_df based on sort_values
+    sorted_columns = pivot_df.columns[np.argsort(sort_values)][::-1]
+
+    # Step 3: Reassign the sorted DataFrame back to pivot_df
+    pivot_df = pivot_df[sorted_columns]
+    column_names = pivot_df.columns.to_list()
+    array = pivot_df.to_numpy()
+    result_dict = {column_names[i]: array[:, i].tolist() for i in range(array.shape[1])}
+    return result_dict, category_names
+
+def survey(df):
     """
     Parameters
     ----------
@@ -292,6 +367,7 @@ def survey(results, category_names):
     category_names : list of str
         The category labels.
     """
+    results, category_names = get_survey_data(df)
     labels = list(results.keys())
     data = np.array(list(results.values()))
     data_cum = data.cumsum(axis=1)
@@ -318,3 +394,16 @@ def survey(results, category_names):
               loc='lower left', fontsize='small')
 
     return fig, ax
+
+def add_title(fig, main_title: str, sub_title: str = None):
+    # Add main title
+    fig.suptitle(main_title,
+                color='black', fontsize=16, ha='left', x=0.125, y = 0.9)  # Adjust 'x' for horizontal alignment, fontsize for size
+
+    # Add subtitle
+    fig.text(0.125, 0.82, sub_title, color='grey', fontsize=12, ha='left')  # Adjust 'x' and 'y' for position
+
+    # Adjust layout to add padding
+    fig.tight_layout(pad=3.0)  # Adjust padding as needed
+
+    plt.show()
