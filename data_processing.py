@@ -74,7 +74,7 @@ def clean_energysource(df: pd.DataFrame):
     df.drop(columns = [("energySource","offOn"), ("energySource","offOffs"),("energySource","bBs"), ("energySource", "bSm"),("energySource", "smSms")], inplace = True)
     return df
 
-def set_dummies(df, column):
+def set_dummies(df: pd.DataFrame, column: str):
     dummies = pd.get_dummies(df[(column, "sub")])
     dummies = dummies.astype(int)
     columns = [(column, c) for c in dummies.columns]
@@ -82,3 +82,10 @@ def set_dummies(df, column):
     df = pd.concat([df, dummies], axis=1)
     #df.drop(columns = [column, "sub"])
     return df
+
+def rename(df: pd.DataFrame):
+    rename_dict = {"overground" : "Overhead", "underground" : "Subsurface", "nothing" : "Same as today"}
+    df["Category"].replace(rename_dict, inplace = True)
+
+    rename_dict = {"balanced" : "import = export", "more" : "import more", "same" : "import same"}
+    df['Category'].replace(rename_dict, inplace=True)

@@ -232,6 +232,46 @@ def barh_chart(plot_data: pd.DataFrame, fig, ax):
     # Add title text
     #ax.set_title("Wind and Solar Production Over Years ", color = "black", pad = 25, loc = 'left')
 
+def stack_barh(df: pd.DataFrame):
+    # Assuming 'df_sum' is your DataFrame
+    # Calculate the sum for each category
+    category_sums = df.sum()
+
+    # Calculate percentages
+    total_respondents = len(df)
+    percentages = (category_sums / total_respondents)
+
+    # Prepare data for plotting
+    data_for_plot = percentages.reset_index()
+    data_for_plot.columns = ['Category', 'Percentage']
+    solar_percentage = int(data_for_plot.iloc[2].values[1] * 100) 
+    data_for_plot = data_for_plot.iloc[:2]
+
+    # Plot
+    plt.figure(figsize=(10, 4))
+    sns.barplot(x='Percentage', y='Category', data=data_for_plot, orient='h')
+
+    df_offshore = (df[df["offshore"] == 1]["solar"].sum() / total_respondents)
+    df_onshore = (df[df["onshore"] == 1]["solar"].sum() / total_respondents) 
+    offshore_df = pd.DataFrame({'Percentage': [df_offshore], 'Category': 'offshore'})
+
+    onshore_df = pd.DataFrame({'Percentage': [df_onshore], 'Category': 'onshore'})
+
+    combined_df = pd.concat([offshore_df, onshore_df], ignore_index=True)
+
+    sns.barplot(x='Percentage', y='Category', data=combined_df, orient='h')
+    #plt.title('Proportion of solar with offshore and onshore', ha='center', fontsize=24, pad = 20)
+    plt.xlabel('Percentage (%)')
+    plt.ylabel('Category')
+    plt.xlim(0, 1)
+
+    # Emphasize "50%" more by making it larger than the rest of the text
+    plt.figtext(0.27, -0.1, str(solar_percentage) + "%", ha='center', fontsize=24, color='#FF7F0E')
+    plt.figtext(0.5, -0.1, ' of students included         as part of wind production', ha='center', fontsize=12, color='#4c72b0')
+    plt.figtext(0.5, -0.1, '                   solar                           ', ha='center', fontsize=12, color='#FF7F0E')
+    return plt.gcf()
+    #plt.show()
+
 def text_pre(df: pd.DataFrame, col: str):
     # Creaete a pandas.Series object and split it into words
     split_symbols = "[\n1.2.3.() /,-]"
@@ -282,31 +322,38 @@ def bag_of_words(symbols: pd.Series):
     top_words = word_counts.nlargest(10)
     print(top_words)
 
-def geo_plot(df, fig, ax):
+def geo_plot(df, fig, ax, legend: bool = True):
     def to_percent(x, pos):
         return f'{x * 100:.0f}%'
+    
+    # Get the min and max values from the data
+    vmin, vmax = df["pos"].min(), df["pos"].max()
+    
+    # Normalize object to map the value range to [0, 1]
+    norm = mcolors.Normalize(vmin=0, vmax=1)
 
     formatter = FuncFormatter(to_percent)
     palette = 'coolwarm'
-    df.plot(column = "pos", 
-              cmap = palette,
-              edgecolor = "white", 
-              legend = False, 
-              legend_kwds=
-              {
-                  "drawedges": False,
-                  "label": "", 
-                  "orientation": "vertical",
-                  "format": formatter,
-                  },
-              missing_kwds = # If a municipality is not chosen
-              { 
+    
+    # Plot the data with the normalized colormap
+    df.plot(column="pos", 
+            cmap=palette,
+            edgecolor="white", 
+            legend=False, 
+            legend_kwds={
+                "drawedges": False,
+                "label": "", 
+                "orientation": "vertical",
+                "format": formatter,
+            },
+            missing_kwds={  # If a municipality is not chosen
                 "color": "lightgrey",
-                "edgecolor": "red",
+                "edgecolor": "black",
                 "hatch": "///",
                 "label": "Missing values"
-              },
-              ax = ax)
+            },
+            norm=norm,  # Apply the normalization
+            ax=ax)
 
     # Remove spines and markers
     for spine in ax.spines:
@@ -315,26 +362,17 @@ def geo_plot(df, fig, ax):
     # Remove axis
     ax.set_axis_off()
     ax.set_xlabel("X-axis")
+    if legend:
+        # Create a colorbar with the same normalization
+        sm = plt.cm.ScalarMappable(cmap=palette, norm=norm)
+        sm.set_array([])
+        cbar = fig.colorbar(sm, ax=ax)
+        cbar.outline.set_visible(False)  # Remove the colorbar frame
 
-    # Create a colorbar
-    sm = plt.cm.ScalarMappable(cmap=palette, norm=plt.Normalize(vmin=df['pos'].min(), vmax=df['pos'].max()))
-    sm.set_array([])
-    cbar = fig.colorbar(sm, ax=ax)
-    cbar.outline.set_visible(False)  # Remove the colorbar frame
+        # Apply the formatter to the colorbar
+        cbar.ax.yaxis.set_major_formatter(formatter)
 
-    # Apply the formatter to the colorbar
-    cbar.ax.yaxis.set_major_formatter(formatter)
-
-    cmap = cbar.cmap # Get the colormap for the colorbar
-
-    vmin, vmax = (df["pos"].min(), df["pos"].max())
-    # Normalize object to map the value range to [0, 1]
-    norm = mcolors.Normalize(vmin=vmin, vmax=vmax)
-
-    cbar.ax.tick_params(length=0)
-
-    # Modify the legend
-    legend = ax.get_legend()
+        cbar.ax.tick_params(length=0)
 
 def get_survey_data(data):
     category_names = ['Strongly disagree', 'Disagree',
@@ -407,3 +445,35 @@ def add_title(fig, main_title: str, sub_title: str = None):
     fig.tight_layout(pad=3.0)  # Adjust padding as needed
 
     plt.show()
+
+def stacked_barh(df: pd.DataFrame, groups: str, subgroups: str):
+    values = "Percentage"
+    
+    # Calculate percentages
+    df[values] = df['Count'] / df.groupby(groups)['Count'].transform('sum')
+    # Plot
+    unique_group = df[groups].unique()
+    acc = 0
+    for c in unique_group:
+        df_c = df[df[groups] == c]
+        for i in df_c.index:
+            acc += df_c.loc[i][values]
+            df.at[i,values] = acc
+            
+        acc = 0
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    unique_cat = df[subgroups].unique()
+    sns.barplot(data=df[df[subgroups] == unique_cat[2]], x=values, y=groups, orient = "h", label = unique_cat[2])
+    sns.barplot(data=df[df[subgroups] == unique_cat[1]], x=values, y=groups, orient = "h", label = unique_cat[1])
+    sns.barplot(data=df[df[subgroups] == unique_cat[0]], x=values, y=groups, orient = "h", label = unique_cat[0])
+
+
+    # Format y-axis as percentages
+    ax.set_xlabel(values)
+    ax.set_ylabel(groups)
+    ax.set(xlim=(0, 1))
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda x, _: '{:.0%}'.format(x)))
+    ax.legend(loc="right", frameon=False, bbox_to_anchor=(1.2, 0.5))
+
+    return fig, ax 
