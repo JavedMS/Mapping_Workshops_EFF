@@ -8,7 +8,6 @@ import matplotlib.ticker as mtick
 from matplotlib.patches import Ellipse
 from wordcloud import WordCloud
 import re
-from cartopy import crs as ccrs
 from matplotlib.ticker import FuncFormatter
 import matplotlib.colors as mcolors
 import textwrap
@@ -21,8 +20,8 @@ colors = ['#ffa0a0', '#ffb0a0', '#ffc0a0', '#ffd0a0', '#ffe0a0', '#fff0a0']
 sns.set_palette('pastel')
 
 # Despine
-border_color = "lightgray"
-label_color = "gray"
+border_color = "black"
+label_color = "black"
 
 # Specifying custom matplotlib.RcParams
 rc_params = {"axes.spines.right": False, "axes.spines.top": False, "axes.spines.left" : False,
@@ -84,10 +83,17 @@ def box_plot(df: pd.DataFrame):
     data = pd.melt(df[sorted_columns])
 
     # Create the box plot
-    plt.figure(figsize=(15, 6))
-    ax = sns.boxplot(x='Response', y='value', data=data, width = 0.7)
+    plt.figure(figsize=(18, 6))
+    ax = sns.boxplot(x='Response', y='value', data=data, width = 0.6)
+
+    ax.set(xlabel = "", ylabel = "")
+    #ax.spines["bottom"].set_visible(False)
     
-    fig = ax.figure
+    ax.tick_params(axis='x', labelsize=17)  # Adjust fontsize as needed
+    ax.tick_params(axis='y', labelsize=15)  # Adjust fontsize as needed
+
+    labels = [label.get_text().replace(' ', '\n') for label in ax.get_xticklabels()]
+    ax.set_xticklabels(labels)
 
     return ax
 
@@ -124,7 +130,7 @@ def stacked_bar_chart(plot_data: pd.DataFrame, fig, ax):
     ax.set_xlabel(None)
 
     # Add title text
-    plt.tight_layout()
+    #plt.tight_layout()
     plt.show()
 
 
@@ -187,7 +193,7 @@ def barh_chart(plot_data: pd.DataFrame, fig, ax):
         ax.spines[spine].set_visible(False)
 
     # Add the top spine
-    ax.spines["top"].set(color = "gray", visible = True)
+    ax.spines["top"].set(visible = True)
     ax.spines["top"].set_position(position = ("outward",10))
 
     #ax.set_xlim(0,5)
@@ -202,7 +208,7 @@ def barh_chart(plot_data: pd.DataFrame, fig, ax):
 
     # Change y-axis
     ax.spines['left'].set_position(position=('outward', 10))
-    ax.tick_params(axis='y', colors= 'gray')
+    ax.tick_params(axis='y')
     
     # Left align the labels
     for label in ax.get_yticklabels():
@@ -211,17 +217,18 @@ def barh_chart(plot_data: pd.DataFrame, fig, ax):
     ax.spines['left'].set_position(position=('outward', 10))
 
     # Change bar-colors and the padding between the bars
+    """
     i = 0
     for bar in ax.patches:
         # Adjust the padding calculation to account for the direction
         bar.set(facecolor = 'tab:blue', edgecolor = "black")
-
+    """
     # Change bar-text
     ax.tick_params(axis='x', labelrotation=0, labelcolor= "black", pad=15)
 
     # Set the x-ticks on top
-    ax.tick_params(axis = "x", which = 'both', colors = "gray", top = True, bottom = False, labelbottom = False, labeltop = True)
-    ax.tick_params(axis = "y", color = "gray", left = False)
+    ax.tick_params(axis = "x", which = 'both', top = True, bottom = False, labelbottom = False, labeltop = True)
+    ax.tick_params(axis = "y", left = False)
 
     # Remove x_label
     #ax.set_xlabel(xlabel = "Hello")
@@ -262,7 +269,7 @@ def stack_barh(df: pd.DataFrame):
     sns.barplot(x='Percentage', y='Category', data=combined_df, orient='h')
     #plt.title('Proportion of solar with offshore and onshore', ha='center', fontsize=24, pad = 20)
     plt.xlabel('Percentage (%)')
-    plt.ylabel('Category')
+    plt.ylabel('')
     plt.xlim(0, 1)
 
     # Emphasize "50%" more by making it larger than the rest of the text
@@ -292,19 +299,24 @@ def text_pre(df: pd.DataFrame, col: str):
     return text_str
 
 def word_cloud(df: pd.DataFrame, col: str):
+    # Create a circular mask
+    x, y = np.ogrid[:800, :800]
+    mask = (x - 400) ** 2 + (y - 400) ** 2 > 400 ** 2
+    mask = 255 * mask.astype(int)
+
     text_str = text_pre(df, col)
-    wordcloud = WordCloud(width = 800, height = 800,
-                        background_color ='white',
-                        stopwords = None,  # You can add a set of words to exclude here
-                        min_font_size = 10).generate(text_str)
+    wordcloud = WordCloud(width=800, height=800,
+                          background_color='white',
+                          stopwords=None,  # You can add a set of words to exclude here
+                          min_font_size=10,
+                          mask=mask).generate(text_str)
 
     # Display the generated image:
-    plt.figure(figsize = (8, 8), facecolor = None)
-    plt.imshow(wordcloud)
+    plt.figure(figsize=(8, 8), facecolor=None)
+    plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis("off")
-    plt.tight_layout(pad = 0)
-    
-
+    plt.tight_layout(pad=0)
+    plt.savefig('impressions.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 def hist_plot(df: pd.DataFrame, ax: mpl.axes):
@@ -326,19 +338,20 @@ def geo_plot(df, fig, ax, legend: bool = True):
     def to_percent(x, pos):
         return f'{x * 100:.0f}%'
     
-    # Get the min and max values from the data
-    vmin, vmax = df["pos"].min(), df["pos"].max()
-    
+    if legend:
+        width, height = fig.get_size_inches()
+        fig.set_size_inches(width * 1.15, height)
+
     # Normalize object to map the value range to [0, 1]
     norm = mcolors.Normalize(vmin=0, vmax=1)
 
     formatter = FuncFormatter(to_percent)
-    palette = 'coolwarm'
+    palette = 'Blues'
     
     # Plot the data with the normalized colormap
     df.plot(column="pos", 
             cmap=palette,
-            edgecolor="white", 
+            edgecolor="black", 
             legend=False, 
             legend_kwds={
                 "drawedges": False,
@@ -347,9 +360,9 @@ def geo_plot(df, fig, ax, legend: bool = True):
                 "format": formatter,
             },
             missing_kwds={  # If a municipality is not chosen
-                "color": "lightgrey",
-                "edgecolor": "black",
-                "hatch": "///",
+                "color": "white",
+                #"edgecolor": "black",
+                #"hatch": "///",
                 "label": "Missing values"
             },
             norm=norm,  # Apply the normalization
@@ -363,6 +376,7 @@ def geo_plot(df, fig, ax, legend: bool = True):
     ax.set_axis_off()
     ax.set_xlabel("X-axis")
     if legend:
+        fig.tight_layout(rect=[0, 0, 0.85, 1])
         # Create a colorbar with the same normalization
         sm = plt.cm.ScalarMappable(cmap=palette, norm=norm)
         sm.set_array([])
@@ -447,11 +461,13 @@ def add_title(fig, main_title: str, sub_title: str = None):
     plt.show()
 
 def stacked_barh(df: pd.DataFrame, groups: str, subgroups: str):
-    values = "Percentage"
+    perc = "Percentage"
+    values = "Cumulative percentage"
+    fontsize = 18
     
-    # Calculate percentages
+    # Get cumulative percentages
     df[values] = df['Count'] / df.groupby(groups)['Count'].transform('sum')
-    # Plot
+    df[perc] =df[values]
     unique_group = df[groups].unique()
     acc = 0
     for c in unique_group:
@@ -462,18 +478,67 @@ def stacked_barh(df: pd.DataFrame, groups: str, subgroups: str):
             
         acc = 0
 
+
     fig, ax = plt.subplots(figsize=(10, 6))
+    
     unique_cat = df[subgroups].unique()
-    sns.barplot(data=df[df[subgroups] == unique_cat[2]], x=values, y=groups, orient = "h", label = unique_cat[2])
-    sns.barplot(data=df[df[subgroups] == unique_cat[1]], x=values, y=groups, orient = "h", label = unique_cat[1])
-    sns.barplot(data=df[df[subgroups] == unique_cat[0]], x=values, y=groups, orient = "h", label = unique_cat[0])
+    for i in reversed(range(len(unique_cat))):
+        sns.barplot(data=df[df[subgroups] == unique_cat[i]], x=values, y=groups, orient = "h", label = unique_cat[i])
 
+    # Add percentage values to the bars
+    for c in unique_group:
+        df_c = df[df[groups] == c]
+        total_percentage = [round(i*100,0) for i in df_c[perc]]
+        print(total_percentage)
+        total_percentage = sum(total_percentage)
+        print(total_percentage)
 
+        if total_percentage > 100:
+            # Reduce the largest value by 0.01
+            max_index = df_c[perc].idxmax()
+            df_c.at[max_index, perc] -= 0.0099
+        elif total_percentage < 100:
+            # Increase the largest value by 0.01
+            max_index = df_c[perc].idxmax()
+            df_c.at[max_index, perc] += 0.0099
+        print(df_c)
+
+        cumulative_percentage = 0  # Initialize cumulative percentage
+        
+        for i in df_c.index:
+            percentage = df_c.at[i,perc]
+            cumulative_percentage += percentage  # Update the cumulative percentage
+            
+            previous_cumulative_percentage = cumulative_percentage - percentage
+            x_position = (previous_cumulative_percentage + cumulative_percentage) / 2
+            y_position = df_c.loc[i, groups]
+            
+            # Check if the text fits within the bar
+            if cumulative_percentage - previous_cumulative_percentage < 0.05:  # Adjust the threshold as needed
+                x_position = cumulative_percentage + 0.02  # Place text outside the bar
+            
+            ax.text(x_position, y_position, f'{percentage:.0%}', ha='center', va='center', fontsize=fontsize, color='black')
     # Format y-axis as percentages
-    ax.set_xlabel(values)
-    ax.set_ylabel(groups)
+    ax.set_xlabel("Preference percentage", fontsize=14)
+    ax.tick_params(axis='y', labelsize=fontsize)
+
+    ax.set_ylabel("")
     ax.set(xlim=(0, 1))
     ax.xaxis.set_major_formatter(FuncFormatter(lambda x, _: '{:.0%}'.format(x)))
-    ax.legend(loc="right", frameon=False, bbox_to_anchor=(1.2, 0.5))
+
+    # Get the handles and labels from the current legend
+    handles, labels = ax.get_legend_handles_labels()
+
+    # Reverse the order of handles and labels
+    handles.reverse()
+    labels.reverse()
+
+    ax.legend(handles, labels, loc="right", frameon=False, bbox_to_anchor=(1.3, 0.5), fontsize=14)
+    
+    # Remove the x-axis labeling
+    ax.set_xticklabels([])
+    ax.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+    ax.spines['bottom'].set_visible(False)
+    ax.set_xlabel('')
 
     return fig, ax 
