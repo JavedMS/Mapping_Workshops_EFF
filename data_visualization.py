@@ -316,7 +316,7 @@ def word_cloud(df: pd.DataFrame, col: str):
     plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis("off")
     plt.tight_layout(pad=0)
-    plt.savefig('impressions.png', dpi=300, bbox_inches='tight')
+    plt.savefig('figures/impressions.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 def hist_plot(df: pd.DataFrame, ax: mpl.axes):
@@ -489,10 +489,8 @@ def stacked_barh(df: pd.DataFrame, groups: str, subgroups: str):
     for c in unique_group:
         df_c = df[df[groups] == c]
         total_percentage = [round(i*100,0) for i in df_c[perc]]
-        print(total_percentage)
         total_percentage = sum(total_percentage)
-        print(total_percentage)
-
+        # Fix rounding error for percentage (always sums up to 100%)
         if total_percentage > 100:
             # Reduce the largest value by 0.01
             max_index = df_c[perc].idxmax()
@@ -501,7 +499,6 @@ def stacked_barh(df: pd.DataFrame, groups: str, subgroups: str):
             # Increase the largest value by 0.01
             max_index = df_c[perc].idxmax()
             df_c.at[max_index, perc] += 0.0099
-        print(df_c)
 
         cumulative_percentage = 0  # Initialize cumulative percentage
         
@@ -521,6 +518,9 @@ def stacked_barh(df: pd.DataFrame, groups: str, subgroups: str):
     # Format y-axis as percentages
     ax.set_xlabel("Preference percentage", fontsize=14)
     ax.tick_params(axis='y', labelsize=fontsize)
+
+    custom_labels = ["School 1", "School 2", "School 3"]  # Corresponding labels
+    ax.set_yticklabels(custom_labels)
 
     ax.set_ylabel("")
     ax.set(xlim=(0, 1))
