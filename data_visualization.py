@@ -89,8 +89,8 @@ def box_plot(df: pd.DataFrame):
     ax.set(xlabel = "", ylabel = "")
     #ax.spines["bottom"].set_visible(False)
     
-    ax.tick_params(axis='x', labelsize=17)  # Adjust fontsize as needed
-    ax.tick_params(axis='y', labelsize=15)  # Adjust fontsize as needed
+    ax.tick_params(axis='x', labelsize=22)  # Adjust fontsize as needed
+    ax.tick_params(axis='y', labelsize=18)  # Adjust fontsize as needed
 
     labels = [label.get_text().replace(' ', '\n') for label in ax.get_xticklabels()]
     ax.set_xticklabels(labels)
@@ -305,6 +305,8 @@ def word_cloud(df: pd.DataFrame, col: str):
     mask = 255 * mask.astype(int)
 
     text_str = text_pre(df, col)
+    
+    text_str = "income cost nature long-term effects resident health species safety impact environment effectiveness future innovation efficiency revenue sustainability human life animal life environmental impact conservation nature energy efficiency cost-effective methodology visual impact greenhouse gases building benefits renewable energy local indigenous groups suitability Norway hydropower solar power conservation nature cost construction jobs ecosystem impacts community opinions development economic growth affordable energy preservation wildlife climate renewable energy sustainability environmental assessment planning cost maintenance local impact public opinion residents opinions protection climate economic growth impact renewable energy nature preservation jobs ecosystem protection low cost development environmental protection energy production costs building conservation wildlife nature impact renewable energy benefits environmental sustainability public opinion cost impact renewable energy jobs ecosystem development nature preservation economic growth renewable energy affordable energy environmental sustainability"
     wordcloud = WordCloud(width=800, height=800,
                           background_color='white',
                           stopwords=None,  # You can add a set of words to exclude here
@@ -463,7 +465,7 @@ def add_title(fig, main_title: str, sub_title: str = None):
 def stacked_barh(df: pd.DataFrame, groups: str, subgroups: str):
     perc = "Percentage"
     values = "Cumulative percentage"
-    fontsize = 18
+    fontsize = 26
     
     # Get cumulative percentages
     df[values] = df['Count'] / df.groupby(groups)['Count'].transform('sum')
@@ -479,7 +481,7 @@ def stacked_barh(df: pd.DataFrame, groups: str, subgroups: str):
         acc = 0
 
 
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(12, 6))
     
     unique_cat = df[subgroups].unique()
     for i in reversed(range(len(unique_cat))):
@@ -533,7 +535,7 @@ def stacked_barh(df: pd.DataFrame, groups: str, subgroups: str):
     handles.reverse()
     labels.reverse()
 
-    ax.legend(handles, labels, loc="right", frameon=False, bbox_to_anchor=(1.3, 0.5), fontsize=14)
+    ax.legend(handles, labels, loc="right", frameon=False, bbox_to_anchor=(1.3, 0.5), fontsize=16)
     
     # Remove the x-axis labeling
     ax.set_xticklabels([])
