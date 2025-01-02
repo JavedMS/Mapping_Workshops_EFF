@@ -4,10 +4,11 @@ import re
 import geopandas
 
 land_path = "files/fylker.geojson"
+file_path_r = "files/raw"
+file_path_w = "files/modified"
 
 def read_nettskjema_file(file_names : list[str]) -> pd.DataFrame:
     # Read all the files
-    file_path_r = "files/raw"
     all_data = []
 
     for file in file_names:
@@ -89,3 +90,6 @@ def rename(df: pd.DataFrame):
 
     rename_dict = {"balanced" : "import = export", "more" : "import more", "same" : "import same"}
     df['Category'].replace(rename_dict, inplace=True)
+
+def save_as_file(df: pd.DataFrame, name):
+    df.to_csv(file_path_w + "/" + name,index = False)
